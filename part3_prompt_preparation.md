@@ -2,9 +2,9 @@
 
 ## 1. Repository Context 
 
-The aiokafka library is a Python library that allows developers to use Apache Kafka asynchronously. This means that rather than blocking your program like traditional libraries do, aiokafka uses asyncio to run multiple tasks simultaneously in order to allow for proctecess of messages that may continuously arrive without delays.
+The aiokafka library is a Python library that allows developers to use Apache Kafka asynchronously. This means that rather than blocking your program like traditional libraries do, aiokafka uses asyncio to run multiple tasks simultaneously in order to allow for processing of messages that may continuously arrive without delays. This becomes especially useful in systems where real-time data handling is required and performance is important.
 
-The aiokafka repository has two major parts: producers and consumers. The producer sends messages to Kafka topics and the consumer reads them from those Kafka topics. The consumer side of the library is more complicated than the producer side of the library due to the fact that the consumer has to keep track of offsets and partitions while simultaneously running a background fetch loop to retrieve new messages from Kafka.
+The aiokafka repository has two major parts: producers and consumers. The producer sends messages to Kafka topics and the consumer reads them from those Kafka topics. The consumer side of the library is more complicated than the producer side of the library due to the fact that the consumer has to keep track of offsets and partitions while simultaneously running a background fetch loop to retrieve new messages from Kafka. It also needs to make sure that messages are read in the correct order.
 
 Internally, there are a number of components included in the library such as the fetcher which handles the actual operation of requesting the messages from Kafka. After the consumer has received the message it is responsible for maintaining the state of that message and makes it available to the user. Because the aiokafka library uses an asynchronous design, it is important that each of these components remain consistent with one another.
 
